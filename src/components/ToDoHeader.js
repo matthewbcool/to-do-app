@@ -3,7 +3,11 @@ import React from 'react';
 export class ToDoHeader extends React.Component {
 	render () {
 		return (
-          <div></div>
+          <thead>
+          	<tr>
+                <th>Task</th>
+            </tr>
+          </thead>
 		);
 	}
 }
