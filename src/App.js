@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import ToDoList from './components/ToDoList';
+import CreateTodo from './components/CreateToDo';
 
 
 const todos = [
@@ -27,6 +28,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>To Do List</h1>
+        <CreateTodo todos={this.state.todos} createTask={this.createTask.bind(this)} />
           <ToDoList 
           todos={this.state.todos}
           toggleTask={this.toggleTask.bind(this)}
