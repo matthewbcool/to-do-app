@@ -1,24 +1,23 @@
+import _ from 'lodash';
 import React from 'react';
 import ToDoHeader from './ToDoHeader';
+import ToDoListItem from './ToDoListItem';
 
 class ToDoList extends React.Component {
     renderItems() {
-      let tasks = this.props.todos;
-      let taskList = [];
-      let i = 0;
-      for (i=0; i < tasks.length; i++){
-        taskList.push(tasks[i].task);
-        };
-      return taskList; 
+        const props = _.omit(this.props, 'todos');
+
+        return _.map(this.props.todos, (todo, index) => <ToDoListItem key={index} {...todo} {...props} />);
     }
 
-
-	render () {
-		return (
-             <li>
-               <ToDoHeader />
-               		{this.renderItems()}
-            </li> 
+    render() {
+        return (
+            <table>
+                <ToDoHeader />
+                <tbody>
+                    {this.renderItems()}
+                </tbody>
+            </table>
 		);
 	}
 }
